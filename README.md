@@ -13,9 +13,13 @@ format.
 
 Sample usage instructions after compilation:
 $ mpiexec -n 100 ./solver -usermesh 1 -fV vertex.dat -fC cells.dat \
+
   -maxmode 10 -b 0.01 \
+  
   -ksp_type gmres -ksp_gmres_restart 200 	-ksp_gmres_modifiedgramschmidt \
+  
   -pc_type asm -pc_asm_overlap 10 -pc_asm_type basic \
+  
   -sub_pc_type ilu 
 
 Here we use 100 processes with an input mesh stored in {vertex.dat, cells.dat}
