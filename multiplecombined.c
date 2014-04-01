@@ -1044,31 +1044,7 @@ PetscErrorCode WriteSolVTK(DM dm,Vec *sol,PetscInt maxmode,PetscReal alpha)
     VecView(sol[i],viewer);
   }
   PetscViewerDestroy(&viewer);
-  /* ierr = PetscViewerVTKOpen(PETSC_COMM_WORLD,"mysol.vtk",FILE_MODE_WRITE,&viewer);CHKERRQ(ierr); */
-  /* for(int i=0; i<maxmode; ++i) VecView(sol[i],viewer); */
-  /* PetscViewerDestroy(&viewer); */
-  /* ierr = PetscViewerBinaryOpen(PETSC_COMM_WORLD,"mysol.bin",FILE_MODE_WRITE,&viewer);CHKERRQ(ierr); */
-  /* VecView(sol[0],viewer); */
-  /* PetscViewerDestroy(&viewer); */
   DMDestroy(&cdm);
 
   PetscFunctionReturn(0);
 }
-
-
-////////////////////////////////////////////////////////////////
-  /* for (i=0; i<maxmode; ++i) { */
-  /*   ierr = PetscSNPrintf(modeName,sizeof(modeName),"Mode_%d",i+1);CHKERRQ(ierr); */
-  /*   ierr = PetscObjectSetName((PetscObject) sol[i],modeName);CHKERRQ(ierr); */
-  /*   VecSetDM(sol[i],dm); */
-  /* } */
-
-  /* ierr = PetscSNPrintf(fileName,sizeof(fileName),"Solution_%.2g.vtk",alpha); */
-  /* ierr = PetscViewerVTKOpen(PETSC_COMM_WORLD,fileName,FILE_MODE_WRITE,&viewer);CHKERRQ(ierr); */
-
-  /* /\* VecView(sol[0],viewer); *\/ */
-  /* /\* VecView(sol[1],viewer); *\/ */
-  /* /\* VecView(sol[2],viewer); *\/ */
-  /* /\* VecView(sol[3],viewer); *\/ */
-  /* /\* VecView(sol[4],viewer); *\/ */
-  /* PetscViewerDestroy(&viewer); */
